@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelompok Default - Interactive Team</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="bg-animation" id="bgAnimation"></div>
+    
+    <div class="container">
+        <!-- Intro Screen -->
+        <div class="intro-screen fade-in" id="introScreen">
+            <div class="logo">Default</div>
+            <div class="subtitle">Futuristic Team</div>
+            <p style="font-size: 1.2rem; margin-bottom: 40px; color: rgba(255,255,255,0.7);">
+                Selamat datang di perjalanan interaktif mengenal tim kami!<br>
+                Bersiaplah untuk pengalaman futuristik yang menakjubkan.
+            </p>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <button class="btn" onclick="startIntroduction()">Mulai Perkenalan</button>
+        </div>
+
+        <!-- Member Screens -->
+        <div class="member-screen hidden" id="memberScreen">
+            <div class="member-counter" id="memberCounter">Member 1/4</div>
+            <div class="member-avatar" id="memberAvatar">1</div>
+            <div class="member-name" id="memberName">Alex Chen</div>
+            <div class="member-role" id="memberRole">Team Leader & Frontend Developer</div>
+            <div class="member-description" id="memberDescription">
+                Seorang developer berpengalaman dengan passion dalam teknologi AI dan UI/UX design. Memimpin tim dengan visi futuristik untuk menciptakan solusi inovatif.
+            </div>
+            <button class="btn" onclick="nextMember()" id="nextBtn">Lanjutkan</button>
+            <button class="btn" onclick="prevMember()" id="prevBtn" style="background: linear-gradient(45deg, #ff6b6b, #ee5a24);">Kembali</button>
+        </div>
+
+        <!-- Landing Page Screen -->
+        <div class="landing-page hidden" id="landingPage">
+            <div class="landing-title">Tim Default</div>
+            <div class="landing-subtitle">Futuristic Team - Ready for Tomorrow's Challenges</div>
+            
+            <div class="team-grid" id="teamGrid">
+                <!-- Team members will be dynamically inserted here -->
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <button class="btn" onclick="resetIntroduction()">Ulangi Perkenalan</button>
+                <button class="btn" onclick="exploreMore()" style="background: linear-gradient(45deg, #ff6b6b, #ee5a24);">Jelajahi Lebih</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
