@@ -1,31 +1,35 @@
-// Member data
+// Member data with photo support
 const members = [
     {
         name: "Fachruddin Ghalibi",
         role: "Fullstack Developer",
-        description: "",
-        avatar: "A",
+        description: "Seorang developer berpengalaman dengan passion dalam teknologi dan UI/UX design. Siap menghadapi tantangan teknologi masa depan dengan inovasi dan kreativitas.",
+        avatar: "F",
+        photo: "assets", 
         gradient: "linear-gradient(135deg, #00f5ff, #ff00f5)"
     },
     {
         name: "Muhammad Fadlan",
         role: "Fullstack Developer",
-        description: "",
+        description: "Developer dengan keahlian dalam berbagai teknologi web modern. Berdedikasi untuk menciptakan solusi yang efisien dan user-friendly.",
         avatar: "M",
+        photo: null, 
         gradient: "linear-gradient(135deg, #ff6b6b, #feca57)"
     },
     {
         name: "Ihsan Maulana",
         role: "Fullstack Developer",
-        description: "",
-        avatar: "K",
+        description: "Pengembang yang fokus pada inovasi teknologi dan pengalaman pengguna yang optimal. Selalu siap untuk tantangan baru.",
+        avatar: "I",
+        photo: null, 
         gradient: "linear-gradient(135deg, #48dbfb, #0abde3)"
     },
     {
         name: "Naufal Ajhar El Hafizh",
         role: "Fullstack Developer",
-        description: "",
-        avatar: "Z",
+        description: "Developer kreatif dengan visi untuk membangun aplikasi yang berdampak positif. Menggabungkan teknologi dengan kreativitas.",
+        avatar: "N",
+        photo: null, 
         gradient: "linear-gradient(135deg, #ff9ff3, #f368e0)"
     }
 ];
@@ -76,9 +80,15 @@ function updateMemberDisplay() {
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
 
-    // Update content
-    avatar.textContent = member.avatar;
+    // Update avatar (photo or text)
     avatar.style.background = member.gradient;
+    if (member.photo) {
+        avatar.innerHTML = `<img src="${member.photo}" alt="${member.name}" onerror="this.style.display='none'; this.parentNode.innerHTML='${member.avatar}';">`;
+    } else {
+        avatar.innerHTML = member.avatar;
+    }
+
+    // Update content
     name.textContent = member.name;
     role.textContent = member.role;
     description.textContent = member.description;
@@ -153,9 +163,13 @@ function generateTeamGrid() {
         card.className = 'team-member-card';
         card.style.animationDelay = `${index * 0.2}s`;
         
+        const avatarContent = member.photo ? 
+            `<img src="${member.photo}" alt="${member.name}" onerror="this.style.display='none'; this.parentNode.innerHTML='${member.avatar}';">` : 
+            member.avatar;
+        
         card.innerHTML = `
             <div class="card-avatar" style="background: ${member.gradient};">
-                ${member.avatar}
+                ${avatarContent}
             </div>
             <div class="card-name">${member.name}</div>
             <div class="card-role">${member.role}</div>
@@ -184,19 +198,6 @@ function resetIntroduction() {
     
     // Reset progress
     document.getElementById('progressFill').style.width = '0%';
-    
-    // Reset member screen content
-    memberScreen.innerHTML = `
-        <div class="member-counter" id="memberCounter">Member 1/4</div>
-        <div class="member-avatar" id="memberAvatar">A</div>
-        <div class="member-name" id="memberName">Alex Chen</div>
-        <div class="member-role" id="memberRole">Team Leader & Frontend Developer</div>
-        <div class="member-description" id="memberDescription">
-            Seorang developer berpengalaman dengan passion dalam teknologi AI dan UI/UX design. Memimpin tim dengan visi futuristik untuk menciptakan solusi inovatif.
-        </div>
-        <button class="btn" onclick="nextMember()" id="nextBtn">Lanjutkan</button>
-        <button class="btn" onclick="prevMember()" id="prevBtn" style="background: linear-gradient(45deg, #ff6b6b, #ee5a24);">Kembali</button>
-    `;
 }
 
 // Explore more function
