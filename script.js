@@ -3,7 +3,7 @@ const members = [
     {
         name: "Fachruddin Ghalibi",
         role: "Fullstack Developer",
-        description: "Seorang developer berpengalaman dengan passion dalam teknologi dan UI/UX design. Siap menghadapi tantangan teknologi masa depan dengan inovasi dan kreativitas.",
+        description: "",
         avatar: "F",
         photo: "assets", 
         gradient: "linear-gradient(135deg, #00f5ff, #ff00f5)"
@@ -11,7 +11,7 @@ const members = [
     {
         name: "Muhammad Fadlan",
         role: "Fullstack Developer",
-        description: "Developer dengan keahlian dalam berbagai teknologi web modern. Berdedikasi untuk menciptakan solusi yang efisien dan user-friendly.",
+        description: "",
         avatar: "M",
         photo: null, 
         gradient: "linear-gradient(135deg, #ff6b6b, #feca57)"
@@ -19,7 +19,7 @@ const members = [
     {
         name: "Ihsan Maulana",
         role: "Fullstack Developer",
-        description: "Pengembang yang fokus pada inovasi teknologi dan pengalaman pengguna yang optimal. Selalu siap untuk tantangan baru.",
+        description: "",
         avatar: "I",
         photo: null, 
         gradient: "linear-gradient(135deg, #48dbfb, #0abde3)"
@@ -27,7 +27,7 @@ const members = [
     {
         name: "Naufal Ajhar El Hafizh",
         role: "Fullstack Developer",
-        description: "Developer kreatif dengan visi untuk membangun aplikasi yang berdampak positif. Menggabungkan teknologi dengan kreativitas.",
+        description: "",
         avatar: "N",
         photo: null, 
         gradient: "linear-gradient(135deg, #ff9ff3, #f368e0)"
