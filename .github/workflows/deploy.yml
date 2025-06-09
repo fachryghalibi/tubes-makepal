@@ -1,0 +1,24 @@
+name: Continous Deploy by [Nama Kamu]
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]  # ← Tambahkan ini supaya jalan di PR juga
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Upload files
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
