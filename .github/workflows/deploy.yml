@@ -1,11 +1,16 @@
-name: Continous Deploy by [Nama Kamu]
+name: Continous Deploy by Fadlan
 
 on:
   push:
     branches: ["main"]
   pull_request:
-    branches: ["main"]  # ← Tambahkan ini supaya jalan di PR juga
+    branches: ["main"]
   workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: d576c10fceea12ee2b4da50efd2f9d012164083c
 
 jobs:
   deploy:
