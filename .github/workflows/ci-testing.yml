@@ -1,4 +1,4 @@
-name: Static Website Testing CI
+name: Continous Testing by Fachruddin Ghalibi
 
 on:
   push:
