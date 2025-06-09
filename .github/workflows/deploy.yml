@@ -10,7 +10,6 @@ on:
 permissions:
   contents: read
   pages: write
-  id-token: d576c10fceea12ee2b4da50efd2f9d012164083c
 
 jobs:
   deploy:
