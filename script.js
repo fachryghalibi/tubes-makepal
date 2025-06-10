@@ -11,7 +11,7 @@ const members = [
     {
         name: "Muhammad Fadlan",
         role: "Fullstack Developer",
-        description: "si kembaran cr7",
+        description: "kembaran cr7",
         avatar: "M",
         photo: "assets/fadlan.jpg", 
         gradient: "linear-gradient(135deg, #ff6b6b, #feca57)"
