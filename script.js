@@ -5,8 +5,54 @@ const members = [
         role: "Fullstack Developer",
         description: "",
         avatar: "F",
-        photo: "assets", 
+        photo: "assets/fachry.jpg", 
         gradient: "linear-gradient(135deg, #00f5ff, #ff00f5)"
+        
+    },
+     {
+        name: "Fachruddin Ghalibi",
+        role: "Fullstack Developer",
+        description: "",
+        avatar: "F",
+        photo: "assets/fachry.jpg", 
+        gradient: "linear-gradient(135deg, #00f5ff, #ff00f5)"
+        
+    },
+     {
+        name: "Fachruddin Ghalibi",
+        role: "Fullstack Developer",
+        description: "",
+        avatar: "F",
+        photo: "assets/fachry.jpg", 
+        gradient: "linear-gradient(135deg, #00f5ff, #ff00f5)"
+        
+    },
+     {
+        name: "Fachruddin Ghalibi",
+        role: "Fullstack Developer",
+        description: "",
+        avatar: "F",
+        photo: "assets/fachry.jpg", 
+        gradient: "linear-gradient(135deg, #00f5ff, #ff00f5)"
+        
+    },
+     {
+        name: "Fachruddin Ghalibi",
+        role: "Fullstack Developer",
+        description: "",
+        avatar: "F",
+        photo: "assets/fachry.jpg", 
+        gradient: "linear-gradient(135deg, #00f5ff, #ff00f5)"
+        
+    },
+     {
+        name: "Fachruddin Ghalibi",
+        role: "Fullstack Developer",
+        description: "",
+        avatar: "F",
+        photo: "assets/fachry.jpg", 
+        gradient: "linear-gradient(135deg, #00f5ff, #ff00f5)"
+        
     },
     {
         name: "Muhammad Fadlan",
