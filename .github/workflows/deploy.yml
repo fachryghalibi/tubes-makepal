@@ -3,7 +3,7 @@ name: Continuous Deploy by Fadlan
 on:
   push:
     branches: ["main"]
-    tags: ["v*"] # Trigger saat push tag seperti v1.0.0
+    tags: ["v1.0.0"] # Trigger saat push tag seperti v1.0.0
   pull_request:
     branches: ["main"]
   workflow_dispatch:
