@@ -1,0 +1,27 @@
+name: Continuous Testing by Naufal Ajhar
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+  workflow_dispatch:
+
+jobs:
+  htmltest:
+    name: HTMLTest - Check for broken links & basic issues
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install htmltest
+        run: |
+          wget https://github.com/wjdp/htmltest/releases/download/v0.17.0/htmltest-linux.tar.gz
+          tar -xvzf htmltest-linux.tar.gz
+          sudo mv htmltest /usr/local/bin
+
+      - name: Run htmltest
+        run: |
+          htmltest .
