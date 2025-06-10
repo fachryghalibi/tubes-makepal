@@ -40,30 +40,30 @@ jobs:
             echo "$html_files"
             echo "$html_files" | while read -r file; do
               echo "Validating: $file"
-              tidy -e -q "$file" || echo "⚠️ Validation completed with warnings for $file"
+              tidy -e -q "$file" || echo "Validation completed with warnings for $file"
             done
           else
-            echo "✅ No HTML files found to validate"
+            echo "No HTML files found to validate"
           fi
 
       - name: Validate CSS files
         run: |
-          echo "🎨 Validating CSS files..."
+          echo "Validating CSS files..."
           css_files=$(find . -name "*.css" -not -path "./node_modules/*" -not -path "./.git/*" -not -name "*.min.css")
           if [ -n "$css_files" ]; then
             echo "Found CSS files:"
             echo "$css_files"
             echo "$css_files" | while read -r file; do
               echo "Validating: $file"
-              csslint "$file" || echo "⚠️ CSS validation completed with warnings for $file"
+              csslint "$file" || echo "CSS validation completed with warnings for $file"
             done
           else
-            echo "✅ No CSS files found to validate"
+            echo "No CSS files found to validate"
           fi
 
       - name: Validate JavaScript files
         run: |
-          echo "⚡ Validating JavaScript files..."
+          echo "Validating JavaScript files..."
           js_files=$(find . -name "*.js" -not -path "./node_modules/*" -not -path "./.git/*" -not -name "*.min.js")
           if [ -n "$js_files" ]; then
             echo "Found JavaScript files:"
@@ -76,20 +76,20 @@ jobs:
             echo "--- JSHint Analysis ---"
             echo "$js_files" | while read -r file; do
               echo "Analyzing: $file"
-              jshint "$file" || echo "⚠️ JSHint completed with warnings for $file"
+              jshint "$file" || echo "JSHint completed with warnings for $file"
             done
           else
-            echo "✅ No JavaScript files found to validate"
+            echo "No JavaScript files found to validate"
           fi
 
       - name: Check file structure
         run: |
-          echo "📁 Project file structure:"
+          echo "Project file structure:"
           find . -type f \( -name "*.html" -o -name "*.css" -o -name "*.js" \) -not -path "./node_modules/*" -not -path "./.git/*" | sort
 
       - name: Basic accessibility check
         run: |
-          echo "♿ Basic accessibility check..."
+          echo "Basic accessibility check..."
           html_files=$(find . -name "*.html" -not -path "./node_modules/*" -not -path "./.git/*")
           if [ -n "$html_files" ]; then
             echo "$html_files" | while read -r file; do
@@ -102,18 +102,18 @@ jobs:
               fi
               # Check for title tag
               if ! grep -q "<title>" "$file"; then
-                echo "  ⚠️ Missing <title> tag"
+                echo "  Missing <title> tag"
               fi
               # Check for lang attribute
               if ! grep -q "lang=" "$file"; then
-                echo "  ⚠️ Missing lang attribute in HTML tag"
+                echo "  Missing lang attribute in HTML tag"
               fi
             done
           fi
 
       - name: Performance check
         run: |
-          echo "🚀 Basic performance check..."
+          echo "Basic performance check..."
           # Check for large files
           echo "Large files (>100KB):"
           find . -type f \( -name "*.html" -o -name "*.css" -o -name "*.js" -o -name "*.jpg" -o -name "*.png" -o -name "*.gif" \) -not -path "./node_modules/*" -not -path "./.git/*" -size +100k -exec ls -lh {} \; || echo "No large files found"
@@ -142,7 +142,7 @@ jobs:
       - name: Generate test summary
         if: always()
         run: |
-          echo "## 📊 Test Results Summary" >> $GITHUB_STEP_SUMMARY
+          echo "## Test Results Summary" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "### Files Analyzed:" >> $GITHUB_STEP_SUMMARY
           echo "- **HTML Files:** $(find . -name "*.html" -not -path "./node_modules/*" -not -path "./.git/*" | wc -l)" >> $GITHUB_STEP_SUMMARY
@@ -150,10 +150,10 @@ jobs:
           echo "- **JavaScript Files:** $(find . -name "*.js" -not -path "./node_modules/*" -not -path "./.git/*" | wc -l)" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "### Validation Status:" >> $GITHUB_STEP_SUMMARY
-          echo "- ✅ HTML validation completed" >> $GITHUB_STEP_SUMMARY
-          echo "- ✅ CSS validation completed" >> $GITHUB_STEP_SUMMARY
-          echo "- ✅ JavaScript validation completed" >> $GITHUB_STEP_SUMMARY
-          echo "- ✅ SonarCloud analysis completed" >> $GITHUB_STEP_SUMMARY
+          echo "- HTML validation completed" >> $GITHUB_STEP_SUMMARY
+          echo "- CSS validation completed" >> $GITHUB_STEP_SUMMARY
+          echo "- JavaScript validation completed" >> $GITHUB_STEP_SUMMARY
+          echo "- SonarCloud analysis completed" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "Check the individual steps above for detailed results." >> $GITHUB_STEP_SUMMARY
 
