@@ -3,7 +3,7 @@ const members = [
     {
         name: "Fachruddin Ghalibi",
         role: "Fullstack Developer",
-        description: "",
+        description: "fachrialajah",
         avatar: "F",
         photo: "assets/fachry.jpg", 
         gradient: "linear-gradient(135deg, #00f5ff, #ff00f5)"
