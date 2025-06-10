@@ -1,0 +1,48 @@
+name: Continuous Deploy by Fadlan
+
+on:
+  push:
+    branches: ["main"]
+    tags: ["v*"] # Trigger saat push tag seperti v1.0.0
+  pull_request:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Ambil versi
+        id: get_version
+        run: |
+          if [[ ${{ github.event_name }} == 'push' && ${{ github.ref_type }} == 'tag' ]]; then
+            echo "version=${{ github.ref_name }}" >> $GITHUB_OUTPUT
+          else
+            echo "version=latest" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Pindah file ke folder versi
+        run: |
+          mkdir -p deploy/${{ steps.get_version.outputs.version }}
+          mv * deploy/${{ steps.get_version.outputs.version }} || true
+          mv deploy/* .
+
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload files
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

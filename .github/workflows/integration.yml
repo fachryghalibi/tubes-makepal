@@ -1,0 +1,70 @@
+name: Continous Integration by Ihsan Maulana
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    name: Validate HTML, CSS, and JS
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install HTML Validator (tidy)
+        run: sudo apt-get update && sudo apt-get install -y tidy
+
+      - name: Install CSSLint
+        run: npm install -g csslint
+
+      - name: Validate HTML files
+        run: |
+          echo "Validating HTML files..."
+          find . -name "*.html" -print0 | xargs -0 -n1 tidy -e -q
+
+      - name: Validate CSS files
+        run: |
+          echo "Validating CSS files..."
+          find . -name "*.css" -print0 | xargs -0 -n1 csslint || true
+
+      - name: Check JavaScript syntax
+        run: |
+          echo "Checking JS syntax..."
+          find . -name "*.js" -print0 | xargs -0 -n1 node -c
+
+  deploy:
+    name: Deploy to GitHub Pages
+    if: github.ref == 'refs/heads/main'
+    needs: validate
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload site artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
