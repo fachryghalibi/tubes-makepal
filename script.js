@@ -19,9 +19,9 @@ const members = [
     {
         name: "Ihsan Maulana",
         role: "Fullstack Developer",
-        description: "",
+        description: "Seorang pemuda soleh, baik hati, ramah tamah dan tidak sombong, yang INGIN MENJADI PROGRAMMER HANDAL NAMUM ENGGAN NGODING!!!",
         avatar: "I",
-        photo: null, 
+        photo: "assets/ihsan.png", 
         gradient: "linear-gradient(135deg, #48dbfb, #0abde3)"
     },
     {
