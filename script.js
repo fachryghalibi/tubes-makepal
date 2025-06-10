@@ -5,7 +5,7 @@ const members = [
         role: "Fullstack Developer",
         description: "",
         avatar: "F",
-        photo: "assets", 
+        photo: "assets/fachry.jpg", 
         gradient: "linear-gradient(135deg, #00f5ff, #ff00f5)"
     },
     {
@@ -13,7 +13,7 @@ const members = [
         role: "Fullstack Developer",
         description: "",
         avatar: "M",
-        photo: null, 
+        photo: "assets/fadlan.jpg", 
         gradient: "linear-gradient(135deg, #ff6b6b, #feca57)"
     },
     {
